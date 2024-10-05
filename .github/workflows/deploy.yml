@@ -21,11 +21,17 @@ jobs:
       - name: Install clasp
         run: npm install -g @google/clasp
 
+      - name: Clear existing credentials
+        run: clasp logout || true
+
       - name: Write .clasprc.json
         run: echo "${{ secrets.CLASPRC_FILE }}" > ~/.clasprc.json
 
       - name: Debug .clasprc.json
         run: cat ~/.clasprc.json
+
+      - name: Verify clasp installation
+        run: clasp -v
 
       - name: Deploy to Google Apps Script
         run: clasp push

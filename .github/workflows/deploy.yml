@@ -24,10 +24,8 @@ jobs:
       - name: Authenticate clasp
         run: |
           echo "${{ secrets.CLASPRC_FILE }}" > ~/.clasprc.json
-          clasp login --creds ~/.clasprc.json
+          clasp login --creds ~/.clasprc.json || echo "Login failed with error: $?"
 
       - name: Deploy to Google Apps Script
         run: clasp push
 
-      - name: Debug .clasprc.json
-        run: cat ~/.clasprc.json

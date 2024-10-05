@@ -1,2 +1,3 @@
-.vscode
+.vscode/*
 *.clasprc
+.DS_Store

@@ -30,8 +30,13 @@ jobs:
       - name: Debug .clasprc.json
         run: cat ~/.clasprc.json
 
+      - name: Set correct permissions for .clasprc.json
+        run: chmod 600 ~/.clasprc.json
+
       - name: Verify clasp installation
         run: clasp -v
 
       - name: Deploy to Google Apps Script
         run: clasp push
+        env:
+          CLASP_IGNORE: true # Ignore global credentials if any

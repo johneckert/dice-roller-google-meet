@@ -1,0 +1,26 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {
+    "enabledAdvancedServices": []
+  },
+  "oauthScopes": [
+  "https://www.googleapis.com/auth/script.external_request",
+  "https://www.googleapis.com/auth/script.container.ui"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Dice Roller",
+      "logoUrl": "https://www.jeckert.com/images/project-logos/dm-screen.png",
+      "layoutProperties": {
+        "primaryColor": "#4285F4"
+      }
+    },
+    "meet": {
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      }
+    }
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}

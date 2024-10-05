@@ -1,3 +1,5 @@
 .vscode/*
 *.clasprc
+*.clasprc.json
+secret.json
 .DS_Store

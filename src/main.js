@@ -44,3 +44,4 @@ export async function initializeMainStage() {
   });
   await session.createMainStageClient();
 }
+

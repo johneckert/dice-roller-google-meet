@@ -61,11 +61,8 @@ export async function initializeMainStage() {
 
 function buildDiceCard() {
   var card = CardService.newCardBuilder();
-  
-  // Title
-  card.setHeader(CardService.newCardHeader().setTitle('Dice Roller'));
 
-  // Input field for dice notation (e.g., "3d6+2")
+  card.setHeader(CardService.newCardHeader().setTitle('Dice Roller'));
   var inputField = CardService.newTextInput()
     .setFieldName('diceNotation')
     .setTitle('Enter dice roll (e.g., 3d6+2)');

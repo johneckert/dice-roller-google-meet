@@ -13,11 +13,28 @@
 // limitations under the License.
 
 const path = require('path');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
   entry: './src/main.js',
+  plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: 'Dice Roller',
+  //     favicon: './src/images/catlogo-small.png',
+  //     template: './src/MainStage.html',
+  //   }),
+  //   new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/images', to: '../images' },
+        { from: './src/docs', to: '../docs' },
+      ]}),
+  ],
   output: {
-    library: 'helloWorld',
-    path: path.resolve(__dirname, '../dist/hello-world'),
+    library: 'diceRoller',
+    path: path.resolve(__dirname, './dist/dice-roller'),
   },
 };

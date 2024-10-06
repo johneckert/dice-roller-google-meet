@@ -23,6 +23,11 @@ const MAIN_STAGE_URL =
  * activity in the main stage when the main button is clicked.
  */
 export async function setUpAddon() {
+  const policy = window.trustedTypes.createPolicy('default', {
+    createHTML: (html) => html, // Trusting HTML content
+    createScript: (script) => script // Trusting script content
+  });
+
   const session = await meet.addon.createAddonSession({
     cloudProjectNumber: CLOUD_PROJECT_NUMBER,
   });
@@ -32,15 +37,15 @@ export async function setUpAddon() {
   //   .addEventListener('click', async () => {
   //     await sidePanelClient.startActivity({ mainStageUrl: MAIN_STAGE_URL });
   //   });
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', policy.createScript(() => {
     document
       .getElementById('roll-button')
       .addEventListener('click', () => {
         let diceNotation = document.getElementById('roll-input').value;
         let result = rollDice(diceNotation);
         document.getElementById('result').innerText = `Result: ${result}`;
-    });
-  });
+      });
+  }));
 }
 
 /**

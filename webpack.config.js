@@ -29,12 +29,14 @@ module.exports = {
   //   new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: './src/images', to: '../images' },
-        { from: './src/docs', to: '../docs' },
+        { from: './src/images', to: './images' },
+        { from: './src/docs', to: './docs' },
+        { from: './src/MainStage.html', to: './MainStage.html' },
+        { from: './src/SidePanel.html', to: './SidePanel.html' },
       ]}),
   ],
   output: {
     library: 'diceRoller',
-    path: path.resolve(__dirname, './dist/dice-roller'),
+    path: path.resolve(__dirname, './dist'),
   },
 };

@@ -81,12 +81,10 @@ function buildDiceCard() {
   return card.build();
 }
 
-function rollDice(e) {
-  var notation = e.formInput.diceNotation;
-  
+function rollDice(notationString) {
   var result;
   try {
-    result = parseAndRollDice(notation);
+    result = parseAndRollDice(notationString);
   } catch (err) {
     result = 'Invalid input. Use format like "3d6+2".';
   }
@@ -109,7 +107,7 @@ function rollDice(e) {
 function parseAndRollDice(notation) {
   //3d6+5
   const regex = /(\d+)d(\d+)([+-])?(\d+)?/;
-  const match = roll.match(regex);
+  const match = notation.match(regex);
 
   if (!match) {
     throw new Error("Invalid dice notation eg. 3d6+1");

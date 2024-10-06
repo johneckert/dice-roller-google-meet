@@ -32,13 +32,15 @@ export async function setUpAddon() {
   //   .addEventListener('click', async () => {
   //     await sidePanelClient.startActivity({ mainStageUrl: MAIN_STAGE_URL });
   //   });
-  document
-    .getElementById('roll-button')
-    .addEventListener('click', () => {
-      let diceNotation = document.getElementById('roll-input').value;
-      let result = rollDice(diceNotation);
-      document.getElementById('result').innerText = `Result: ${result}`;
+  document.addEventListener('DOMContentLoaded', () => {
+    document
+      .getElementById('roll-button')
+      .addEventListener('click', () => {
+        let diceNotation = document.getElementById('roll-input').value;
+        let result = rollDice(diceNotation);
+        document.getElementById('result').innerText = `Result: ${result}`;
     });
+  });
 }
 
 /**

@@ -34,7 +34,7 @@ export async function setUpAddon() {
   //   });
   document
     .getElementById('roll-button')
-    .addEventListener('click', async () => {
+    .addEventListener('click', () => {
       let diceNotation = document.getElementById('roll-input').value;
       let result = rollDice(diceNotation);
       document.getElementById('result').innerText = `Result: ${result}`;
